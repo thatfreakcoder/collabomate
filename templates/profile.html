@@ -1,128 +1,117 @@
-<link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css"/>
-
-<header>
-
-
-
-
-</header>
-
-
+{% include 'block.html' %} {% block subcontent %}
+<link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css" />
 <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
 
-                    <div class="card-body">
-                        <div class="card-title mb-4">
-                            <div class="d-flex justify-content-start">
-                                <div class="image-container">
-                                    <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
-                                    <div class="middle">
-                                        <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
-                                        <input type="file" style="display: none;" id="profilePicture" name="file" />
-                                    </div>
-                                </div>
-                                <div class="userData ml-3">
-                                    <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold">Some Name</h2>
-                                    <h6 class="d-block">email</h6>
-                                    
-                                </div>
-                                <div class="ml-auto">
-                                    <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
-                                </div>
+                <div class="card-body">
+                    <div class="card-title mb-4">
+                        <div class="d-flex justify-content-start">
+                            <div class="image-container">
+                                {% if profile[-5] == 'teacher' %}
+                                <img src="https://cdn3.iconfinder.com/data/icons/education-248/128/4-512.png" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" /> {% else %}
+                                <img src="https://image.flaticon.com/icons/png/512/194/194931.png" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" /> {% endif %}
+                            </div>
+                            <div class="userData ml-3">
+                                <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold">{{profile[1]}}</h2>
+                                <h6 class="d-block">{{profile[2]}}</h6>
+
+                            </div>
+                            <div class="ml-auto">
+                                <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Basic Info</a>
-                                    </li>
-                                    
-                                </ul>
-                                <div class="tab-content ml-1" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
-                                        
-
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Full Name</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                Jamshaid Kamran
-                                            </div>
-                                        </div>
-                                        <hr />
-
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">email</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                fetch
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        
-                                        
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">linkedin</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                fetch
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Year</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                fetch
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Role</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                Fetch
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Github</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                Fetch
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Skills</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                Fetch
-                                            </div>
-                                        </div>
-                                        <hr />
-
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
 
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="tab-content ml-1" id="myTabContent">
+                                <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+
+
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Full Name</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            {{profile[1]}}
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Email</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            {{profile[2]}}
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Registration Number</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            {{profile[-2]}}
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Linkedin</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            <a href="{{profile[3]}}" target="blank">View {{profile[1]}} on LinkedIn</a>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Year</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            {{profile[-1]}}
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Role</label>
+                                        </div>
+                                        <div class="col-md-8 col-6 text-capitalize">
+                                            {{profile[-5]}}
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Github</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            <a href="{{profile[4]}}" target="blank">View {{profile[1]}} on Github</a>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Skills</label>
+                                        </div>
+                                        <div class="col-md-8 col-6 text-capitalize">
+                                            {{profile[-6]}}
+                                        </div>
+                                    </div>
+                                    <hr />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+{% endblock %}

@@ -1,9 +1,10 @@
 #!/usr/bin/python3.6
 
-from flask import Flask, request, jsonify, render_template, session, redirect
+from flask import Flask, request, jsonify, render_template, session, redirect, flash
 from flask_mysqldb import MySQL
 from os import urandom
 from yaml import load, FullLoader
+from datetime import datetime
 
 app = Flask(__name__)
 mysql = MySQL(app)
@@ -28,7 +29,7 @@ def index():
     q = cur.execute("SELECT * FROM open_projects;")
     if q > 0:
         projects = cur.fetchall()
-        return render_template('index.html', projects=projects)
+        return render_template('my_index.html', projects=projects)
     else:
         return jsonify({'response' : 'error', 'message': "No Database Entries Found", 'keeps': int(q)})
 
@@ -36,6 +37,7 @@ def index():
 def login():
     if request.method == 'GET':
         session['logged_in'] = True
+        session['user_id'] = 1
         return redirect('/')
 
 @app.route('/project/<int:id>')
@@ -51,7 +53,37 @@ def new_project():
         response = request.form
         title = response['title']
         description = response['description']
-        owner_id
+        owner_id = session['user_id']
+        date = now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        links = response['links']
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO open_projects(title, description, owner_id, date, links) VALUES(%s, %s, %d, %s, %s);", (title, description, owner_id, date, links))
+        mysql.connection.commit()
+        cur.close
+        flash("Projects Created Successfully", "success")
+        return redirect('/')
+    return render_template('/create.html')
+
+@app.route('/profile/me')
+def me():
+    id = session['user_id']
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM profile WHERE user_id={};".format(id))
+    q = cur.fetchone()
+    return render_template('profile.html', profile=q)
+
+@app.route('/profile/<reg_no>')
+def profile(reg_no):
+    reg_no = str(reg_no).upper()
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM profile WHERE registration_number='{}';".format(reg_no))
+    q = cur.fetchone()
+    print(q)
+    return render_template('profile.html', profile=q)
+
+@app.route('/assignments')
+def assignments():
+    return None
 
 @app.errorhandler(404)
 def error(e):
@@ -62,4 +94,4 @@ def error(e):
         })
 
 if __name__ == '__main__':
-    app.run(debug=True, port=4000)
+    app.run(debug=True)

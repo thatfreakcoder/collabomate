@@ -1,26 +1,18 @@
-<style type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='tooplate.css')}}">
+<header>
+    <div class="topnav">
+        <a class="active" href="/"><i class="fa fa-home" style="font-size:36px"></i></a>
 
-</style>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <!-- Brand/logo -->
-    <a class="navbar-brand" href="/">Cotes</a>
 
-    <!-- Links -->
-    <ul class="navbar-nav">
-        <!-- <li class="nav-item">
-            <a class="nav-link" href="/syllabus">Syllabus and Courses</a>
-        </li> -->
-        <li class="nav-item">
-            <a class="nav-link" href="/available">Available Notes</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/request">Request Notes</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/upload">Upload Notes</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/login">Login / Sign Up</a>
-        </li>
-    </ul>
-</nav>
+        <a href='my_index.html'><i class="fa fa-users" style="font-size:36px"></i></a>
+        <a href="#about"><i class="fa fa-trophy" style="font-size:36px"></i></a>
+
+
+        <div class="rightnav">
+            <a href="/project/new"><i class="fa fa-plus-circle" style="font-size:36px"></i></a>
+            <a href="/profile/me"><i class="fa fa-user" style="font-size:36px"></i></a>
+
+            <a href="#about"></a>
+        </div>
+    </div>
+</header>
