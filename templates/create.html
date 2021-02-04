@@ -1,55 +1,44 @@
-<!DOCTYPE html>
-
-
-
-<html>
-<head><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link rel="stylesheet" href="tooplate-style.css">
-</head>
-<body>
-
+{% include 'block.html' %} {% block subcontent %}
 <div class="container">
-	<div class="row">
-	    
-	    <div class="col-md-8 col-md-offset-2">
-	        
-    		<h1>Create post</h1>
-    		
-    		<form action="" method="POST">
-    		    
-    		    
-    		    
-    		    <div class="form-group">
-    		        <label for="title">Title <span class="require">*</span></label>
-    		        <input type="text" class="form-control" name="title" />
-    		    </div>
-    		    
-    		    <div class="form-group">
-    		        <label for="description">Description<span class="require">*</span></label>
-    		        <textarea rows="5" class="form-control" name="description" ></textarea>
-    		    </div>
-    		    <div class="form-group">
-    		        <label for="slug">Link  <small>(This field use in url path.)</small></label>
-    		        <input type="text" class="form-control" name="slug" />
-    		        
-    		    </div>
-    		    
-    		    
-    		    <div class="form-group">
-    		        <button type="submit" class="btn btn-primary">
+    <div class="row">
+
+        <div class="col-md-8 m-3 col-md-offset-2">
+
+            <h1>Create a new Innovative Project</h1>
+            <p class="text-danger">Fields marked * are required</p>
+
+            <form action="/project/new/" method="POST">
+
+
+
+                <div class="form-group">
+                    <label for="title">Title <span class="require">*</span></label>
+                    <input type="text" class="form-control" name="title" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description<span class="require">*</span></label>
+                    <textarea rows="5" class="form-control" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="links">Link  <small>(any additional detail.)</small></label>
+                    <input type="text" class="form-control" name="links" value="" />
+
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
     		            Create
     		        </button>
-    		        <button class="btn btn-default">
+                    <a href="/" class="btn btn-default">
     		            Cancel
-    		        </button>
-    		    </div>
-    		    
-    		</form>
-		</div>
-		
-	</div>
+					</a>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
 </div>
-</body>
-</html>
+{% endblock %}

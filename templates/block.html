@@ -1,48 +1,45 @@
 {% block cdn %}
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <!-- AJAX -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/yourcode.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
-    <link rel="stylesheet" href="{{url_for('static', filename='tooplate.css')}}">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-{% endblock %}
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<!-- AJAX -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/yourcode.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+<link rel="stylesheet" href="{{url_for('static', filename='tooplate-style.css')}}">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %} 
 
 {% block title %}
-    <head>
-        <title>Collab-O-Mate</title>
-    </head>
+<head>
+    <title>Collab-O-Mate</title>
+</head>
 {% endblock %} 
 
 {% block meta %}
-<meta charset="utf-8">
-<meta name="author" content="Yuvraj Dagur">
-<meta name="keywords" content="ML, Machine Learning, IPL, Indian Premier League, IPL Score, IPL Prediction, Random Forest, Decision Tree, Neural Networks, Regression">
-<meta name="description" content="Machine Learning Webapp to predict First Innings Score of IPL 2020 using Regression.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-{% endblock %} 
-
-{% block content %}
+    <meta charset="utf-8">
+    <meta name="author" content="Yuvraj Dagur">
+    <meta name="keywords" content="ML, Machine Learning, IPL, Indian Premier League, IPL Score, IPL Prediction, Random Forest, Decision Tree, Neural Networks, Regression">
+    <meta name="description" content="Machine Learning Webapp to predict First Innings Score of IPL 2020 using Regression.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endblock %} {% block content %}
     <!-- Include Navbar -->
-    {% include '_navbar.html' %} 
+    {% include '_navbar.html' %}
     <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
         <ul class="list-group">
-        {% for category, message in messages %}
-            <li class="alert alert-{{category}}"> {{ message }} </li>
-        {% endfor %}
-    {% endwith %}
+            {% for category, message in messages %}
+                <li class="alert alert-{{category}}"> {{ message }} </li>
+            {% endfor %}
+{% endwith %} 
 
-    {% block subcontent %}
-    {% endblock %}
+    {% block subcontent %} 
+    {% endblock %} 
 {% endblock %}

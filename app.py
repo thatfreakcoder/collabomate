@@ -27,6 +27,7 @@ def add_headers(response):
 @app.route('/')
 def index():
     cur = mysql.connection.cursor()
+    session['user_id'] = 1
     q = cur.execute("SELECT * FROM open_projects;")
     if q > 0:
         projects = cur.fetchall()
@@ -109,10 +110,10 @@ def new_project():
         title = response['title']
         description = response['description']
         owner_id = session['user_id']
-        date = now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         links = response['links']
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO open_projects(title, description, owner_id, date, links) VALUES(%s, %s, %d, %s, %s);", (title, description, owner_id, date, links))
+        cur.execute("INSERT INTO open_projects(title, description, owner_id, date, links) VALUES(%s, %s, %s, %s, %s);", (title, description, owner_id, date, links))
         mysql.connection.commit()
         cur.close
         flash("Projects Created Successfully", "success")
