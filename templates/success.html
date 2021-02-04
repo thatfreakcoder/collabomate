@@ -1,0 +1,17 @@
+{% include 'block.html' %}
+{% block subcontent %}
+<head>
+<link rel="stylesheet" href="{{url_for('static', filename='style3.css')}}"> 
+</head>
+ {% for project in stories %}
+<div class="card border-success mb-3">
+  <img class="card-img-top" src="https://thumbs.dreamstime.com/b/flat-banner-team-success-vector-illustration-successful-completion-project-work-thoughtful-management-support-leads-to-149053189.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{project[1]}}</h5>
+    <p class="card-text">{{project[2]}}</p>
+    <p class="card-text"><small class="text-muted">{{project[-2]}}</small></p>
+    <a class="card-footer" href="/success/{{project[0]}}">View Story</a>
+  </div>
+</div>
+ {% endfor %}
+{% endblock %}
