@@ -1,0 +1,12 @@
+{% include 'block.html' %} {% block subcontent %}
+<div class="container">
+    <header class="tm-site-header">
+        <h1 class="collab-O-mate">collab-o-mate</h1>
+        <p class="tm-site-description">Collab-o-Mate</p>
+        <h1>PROJECTS</h1>
+        {% for project in projects %}
+        <h3>
+            Title: {{project[1]}}
+            <br> Description: {{project[2]}}
+        </h3>
+        {% endfor %} {% endblock %}
