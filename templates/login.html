@@ -5,22 +5,14 @@
 </head>
 
 <body>
-    <section id="content">
-        <form action="/login/" method="POST">
-            <h1>Log-in to <br>Collab-O-Mate</h1>
-            <div>
-                <input type="text" placeholder="Username" required="" id="username" />
-            </div>
-            <div>
-                <input type="password" placeholder="Password" required="" id="password" />
-            </div>
-            <div>
-                <input type="submit" value="Log in" />
-                <a href="/resetpassword/">Reset password</a>
-                <a href="/register/">Register</a>
-            </div>
+    <div class="login">
+        <h1>Login</h1>
+        <form method="post">
+            <input type="text" name="u" placeholder="Username" required="required" />
+            <input type="password" name="p" placeholder="Password" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
         </form>
-    </section>
+    </div>
 </body>
 
 </html>
